@@ -1,7 +1,7 @@
 # memeapi-Spring-Boot
 
 # Response
-```ruby
+```JSON
 [
     {
         "meme_id": 1,
