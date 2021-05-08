@@ -30,9 +30,8 @@ Pass the raw data by the following body structure Given below
 ```JSON
 
     {
-        "meme_id": 1,
-        "meme_name": "doge meme test 2 db",
-        "meme_url": "https://upload.wikimedia.org/wikipedia/en/thumb/5/5f/Original_Doge_meme.jpg/300px-Original_Doge_meme.jpg"
+        "meme_name": "meme name",
+        "meme_url": "url of meme image"
     }
   ```
 # GETBYID
