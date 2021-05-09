@@ -36,8 +36,9 @@
 ```url
   https://meme-app-api.herokuapp.com/memes
 ```
-Content-Type: application/json
-Pass the raw data image file 
+
+**Pass the raw data image file**
+
 ![alt text](https://github.com/anilabha/memeapi-Spring-Boot/blob/master/apicap.PNG)
 
 # GETBYID
