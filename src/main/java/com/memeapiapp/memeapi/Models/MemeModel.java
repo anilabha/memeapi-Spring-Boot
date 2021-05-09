@@ -1,5 +1,7 @@
 package com.memeapiapp.memeapi.Models;
 
+import org.hibernate.annotations.GenericGenerator;
+
 import javax.persistence.*;
 
 import static javax.persistence.GenerationType.SEQUENCE;
@@ -7,74 +9,56 @@ import static javax.persistence.GenerationType.SEQUENCE;
 @Entity(name = "MemeModel")
 public class MemeModel {
     @Id
-    @SequenceGenerator(
-            name = "meme_sequence",
-            sequenceName = "meme_sequence",
-            allocationSize = 1
-    )
-    @GeneratedValue(
-            strategy = SEQUENCE,
-            generator = "meme_sequence"
-    )
-    @Column(
-            name = "meme_id",
-            updatable = false
-    )
-    private Long meme_id;
+    @GeneratedValue(generator = "uuid")
+    @GenericGenerator(name = "uuid", strategy = "uuid2")
+    private String id;
 
-    @Column(
-            name = "meme_name",
-            nullable = false,
-            columnDefinition = "TEXT"
-    )
-    private String meme_name;
-    @Column(
-            name = "meme_url",
-            nullable = false,
-            columnDefinition = "TEXT"
-    )
-    private String meme_url;
+    private String name;
 
-    public MemeModel(Long meme_id, String meme_name, String meme_url) {
-        this.meme_id = meme_id;
-        this.meme_name = meme_name;
-        this.meme_url = meme_url;
+    private String contentType;
+
+    private Long size;
+
+    @Lob
+    private byte[] data;
+
+    public String getId() {
+        return id;
     }
 
-    public MemeModel() {
-
+    public void setId(String id) {
+        this.id = id;
     }
 
-    public Long getMeme_id() {
-        return meme_id;
+    public String getName() {
+        return name;
     }
 
-    public void setMeme_id(Long meme_id) {
-        this.meme_id = meme_id;
+    public void setName(String name) {
+        this.name = name;
     }
 
-    public String getMeme_name() {
-        return meme_name;
+    public String getContentType() {
+        return contentType;
     }
 
-    public void setMeme_name(String meme_name) {
-        this.meme_name = meme_name;
+    public void setContentType(String contentType) {
+        this.contentType = contentType;
     }
 
-    public String getMeme_url() {
-        return meme_url;
+    public Long getSize() {
+        return size;
     }
 
-    public void setMeme_url(String meme_url) {
-        this.meme_url = meme_url;
+    public void setSize(Long size) {
+        this.size = size;
     }
 
-    @Override
-    public String toString() {
-        return "MemeModel{" +
-                "meme_id=" + meme_id +
-                ", meme_name='" + meme_name + '\'' +
-                ", meme_url='" + meme_url + '\'' +
-                '}';
+    public byte[] getData() {
+        return data;
+    }
+
+    public void setData(byte[] data) {
+        this.data = data;
     }
 }
