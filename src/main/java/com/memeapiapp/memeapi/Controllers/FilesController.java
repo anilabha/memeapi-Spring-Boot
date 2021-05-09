@@ -51,7 +51,7 @@ public class FilesController {
 
     private FileResponse mapToFileResponse(MemeModel fileEntity) {
         String downloadURL = ServletUriComponentsBuilder.fromCurrentContextPath()
-                .path("/files/")
+                .path("/memes/")
                 .path(fileEntity.getId())
                 .toUriString();
         FileResponse fileResponse = new FileResponse();
